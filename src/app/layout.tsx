@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Syne } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE } from '@/data/portfolio'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'], weight: ['300', '400', '500', '600'], variable: '--font-inter', display: 'swap' })
-const syne = Syne({ subsets: ['latin'], weight: ['400', '700', '800'], variable: '--font-syne', display: 'swap' })
+// Self-hosted (latin, variable weight) so builds never depend on fetching Google Fonts.
+// Both fonts are licensed under the SIL Open Font License.
+const inter = localFont({ src: '../fonts/inter-latin-variable.woff2', weight: '300 600', variable: '--font-inter', display: 'swap' })
+const syne = localFont({ src: '../fonts/syne-latin-variable.woff2', weight: '400 800', variable: '--font-syne', display: 'swap' })
 
 const title = `${SITE.name} — ${SITE.title}`
 const description = `Full-Stack Developer with ${SITE.experience} years building scalable web apps with React.js, Next.js, TypeScript, ASP.NET and SQL Server.`
